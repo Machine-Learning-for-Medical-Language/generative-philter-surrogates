@@ -1,0 +1,52 @@
+[project]
+name = "generative-philter-surrogates"
+requires-python = ">= 3.8"
+dependencies = [
+    "philter-lite < 1",
+]
+authors = [
+  { name="Andy McMurry, PhD", email="andrew.mcmurry@childrens.harvard.edu" },
+  { name="Michael Terry", email="michael.terry@childrens.harvard.edu" },
+]
+description = "Replaces PHI in clinical notes with surrogates"
+readme = "README.md"
+license = { text="Apache License 2.0" }
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://github.com/Machine-Learning-for-Medical-Language/generative-philter-surrogates"
+
+[project.scripts]
+cumulus-etl = "cumulus.cli:main_cli"
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.sdist]
+include = [
+    "docs/",
+    "tests/",
+    "LICENSE",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+
+[tool.black]
+line-length = 120
+
+[project.optional-dependencies]
+tests = [
+    "ddt",
+    "pytest",
+]
+dev = [
+    "pre-commit",
+]
