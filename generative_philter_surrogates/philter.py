@@ -42,7 +42,7 @@ class Scrubber:
     @staticmethod
     def _init_config():
         # Ensure all the nltk data that our filter_config (below) needs is available.
-        nltk.download("averaged_perceptron_tagger", quiet=True)
+        #nltk.download("averaged_perceptron_tagger", quiet=True)
         filter_config = os.path.join(os.path.dirname(__file__), "resources", "philter_config.toml")
         return philter_lite.load_filters(filter_config)
 
